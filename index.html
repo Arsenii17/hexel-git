@@ -1,0 +1,2381 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.9">
+    <title>EatSmart</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  </head>
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+  body{
+      overflow-x: hidden !important;
+      font-family: 'Quicksand', sans-serif;
+      margin: 6px;
+      background-color: #ffffff;
+      margin-bottom: 100px;
+      margin: 6px auto;
+      max-width: 440px;
+    }
+    .slideshow {
+      position: relative;
+    }
+
+.activity-level-input,.slider-section-input{
+  display: flex;
+  justify-content:space-between;
+  align-items:center
+}
+.activity-level-input >span,.slider-section-input >span{
+  margin:-12px 0px 0px 6px;
+}
+    @media (min-width: 391px) {
+      .additional-options {
+        width: 415px;
+      }
+      #icon-radio-group{
+        width: 425px;
+      }
+      .option1{
+        width: 380px;
+      }
+    }
+
+
+    .slide {
+      width: 100%;
+      height: 100%;
+      display: none;
+    }
+
+    .slide:first-child {
+      display: block;
+    }
+    .sliderTitle{
+      margin: auto 16px;
+    }
+    .sliderTitle >.stress-lifestyle{
+      width: 90%;
+    }
+    .greeting{
+        font-size: 32px;
+        line-height: 36px;
+    }
+    .under_greeting{
+        margin-top: 4px;
+        font-weight: normal;
+        font-size: 14px;
+        color: #8F8F8F;
+        margin-bottom: 20px;
+    }
+    #purple_text{
+      color: #9C6AF9;
+    }
+    .slide{
+      font-family: "Onest", sans-serif;
+      font-optical-sizing: auto;
+      font-style: normal;
+    }
+    .main_image{
+      max-width: 500px;
+      width: 100%;
+      height: 500px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .c_1{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: url('./firstAnimationImages/Ellipse 4.png');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      animation: c_1 .6s ease-in-out;
+      width:100%;
+      height: 100%;
+    }
+     .c_2{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: url('./firstAnimationImages/Ellipse 4.png');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      animation-delay: .3s;
+      animation: c_2 .6s ease-in-out;
+      width:70%;
+      height: 70%;
+    }
+    .c_3{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: url('./firstAnimationImages/Ellipse 4.png');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      animation-delay: .3s;
+      animation: c_3 .6s ease-in-out;
+      width:70%;
+      height: 70%;
+      position: relative;
+    }
+    
+    .c_2{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .c_3{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }  
+    .c_3 > div{
+      display: none;
+    } 
+    @keyframes c_1 {
+      from{width: 0px;height:0px}
+      to{width: 400px;height:400px}
+    }
+    @keyframes c_2 {
+      from{width: 0%;height:0%}
+      to{width: 70%;height:70%}
+    }
+    @keyframes c_3 {
+      from{width: 0%;height:0%}
+      to{width: 70%;height:70%}
+    }
+
+    
+.c_3_img_1{
+      background-image: url('./firstAnimationImages/variant1.png');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 130px;
+      height: 130px;
+      animation: c_3_img_1 .5s ease-in-out;
+      position: relative;
+      z-index: -1;
+    }
+    @keyframes c_3_img_1 {
+      from{width: 0px;height:0px}
+      to{width: 130px;height:130px}
+    }
+.c_3_img_8{
+      background-image: url('./firstAnimationImages/variant8.png');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 130px;
+      height: 130px;
+      animation: c_3_img_1 .5s ease-in-out;
+      position: relative;
+      z-index: -1;
+    }
+    @keyframes c_3_img_1 {
+      from{width: 0px;height:0px}
+      to{width: 130px;height:130px}
+    }
+
+    .c_3_img_2{
+      background-image: url('./firstAnimationImages/variant2.png');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 70px;
+      height: 70px;
+      left: -20px;
+      bottom: -50px;
+      animation: c_3_img_2 .5s ease-in-out;
+      position: absolute;
+      z-index: -1;
+    }
+    @keyframes c_3_img_2 {
+      from{width: 0px;height:0px;}
+      to{width: 70px;height:70px;}
+    }
+
+    .c_3_img_3{
+      background-image: url('./firstAnimationImages/variant3.png');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 60px;
+      height: 60px;
+      left: -52px;
+      bottom: 70px;
+      animation: c_3_img_3 .5s ease-in-out;
+      position: absolute;
+      z-index: -1;
+    }
+    @keyframes c_3_img_3 {
+      from{width: 0px;height:0px;}
+      to{width: 60px;height:60px;}
+    }
+
+     .c_3_img_4{
+      background-image: url('./firstAnimationImages/variant4.png');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 70px;
+      height: 70px;
+      left: -32px;
+      top: -40px;
+      animation: c_3_img_4 .5s ease-in-out;
+      position: absolute;
+      z-index: -1;
+    }
+    @keyframes c_3_img_4 {
+      from{width: 0px;height:0px;}
+      to{width: 70px;height:70px;}
+    }
+
+    .c_3_img_5{
+      background-image: url('./firstAnimationImages/variant5.png');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 70px;
+      height: 70px;
+      right: -22px;
+      top: -40px;
+      animation: c_3_img_5 .5s ease-in-out;
+      position: absolute;
+      z-index: -1;
+    }
+    @keyframes c_3_img_5 {
+      from{width: 0px;height:0px;}
+      to{width: 70px;height:70px;}
+    }
+
+     .c_3_img_6{
+      background-image: url('./firstAnimationImages/variant6.png');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 70px;
+      height: 70px;
+      right: -90px;
+      bottom: 50px;
+      animation: c_3_img_6 .6s ease-in-out;
+      position: absolute;
+      z-index: -1;
+    }
+    @keyframes c_3_img_6 {
+      from{width: 0px;height:0px;}
+      to{width: 70px;height:70px;}
+    }
+
+     .c_3_img_7{
+      background-image: url('./firstAnimationImages/variant7.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 100px;    
+      height: 85px;
+      right: -32px;
+      bottom: -60px;
+      animation: c_3_img_7 .6s ease-in-out;
+      position: absolute;
+      z-index: -1;
+    }
+    @keyframes c_3_img_7 {
+      from{width: 0px;height:0px;}
+      to{width: 70px;height:70px;}
+    }
+
+    .page1{
+      width: 116px;
+
+    }
+    span{
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    #icon-radio-group {
+        width: 100%;
+    }
+
+    .option {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 20px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+/*        margin-bottom: 10px;*/
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s;
+        position: relative;
+    }
+
+    .option:hover {
+        background-color: #f0f0f0;
+    }
+
+    .option img {
+        margin-right: 8px;
+    }
+
+    .option span {
+        font-size: 16px;
+        flex-grow: 1;
+        text-align: left;
+    }
+
+    .option input[type="radio"] {
+        margin-left: auto;
+        cursor: pointer;
+    }
+
+    .additional-options {
+        margin-top: 30px;
+        width: 100%;
+    }
+
+    .not-found {
+        font-family: "Quicksand", sans-serif;
+        font-weight: 510;
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    .medical-conditions {
+        width: calc(100% - 20px);
+        height: 80px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 14px;
+        resize: none;
+        margin-bottom: 200px;
+    }
+
+    @media (min-width: 391px) {
+      
+        .additional-options {
+            width: 100%;
+        }
+        #icon-radio-group {
+            width: 100%;
+        }
+    }
+
+
+
+
+
+
+
+
+/*    Основное где вес и тд*/
+    .option1 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin: 0px 10px 20px;
+      cursor: pointer; /* Делаем курсор указателем при наведении */
+      transition: background-color 0.3s, color 0.3s; /* Добавляем плавные анимации при наведении */
+    }
+
+    .option1 span {
+      font-size: 16px; /* Размер текста */
+    }
+    .option1 > div {
+     display: flex;
+    align-items: center;
+    }
+    .option1 > div >img{
+      margin-top: 1px;
+      width: 20px;
+      margin-left: 10px;
+    }
+
+    .option1 select,
+    .option1 input[type="number"] {
+      flex-grow: 1;
+      padding: 8px;
+      border: none; /* Убираем рамку */
+      border-radius: 0; /* Убираем бордер радиус */
+      border-bottom: 1px solid #ccc; /* Добавляем нижнюю границу */
+      font-size: 14px;
+      margin-left: 10px;
+    }
+    .option_1{
+      display: flex;
+      justify-content: center;
+    }
+    .option_1 select,
+    .option_1 input[type="number"] {
+      flex-grow: 1;
+      text-align:center;
+      padding: 8px;
+      text-align:center;
+      border: none; /* Убираем рамку */
+      border-radius: 0; /* Убираем бордер радиус */
+      font-size: 14px;
+      margin-left: 10px;
+     outline: none;
+      max-width: 120px;
+    }
+
+
+
+
+    .preference-card:active {
+      background-color: rgba(156, 106, 249, 0.2); /* Фон карточки при нажатии */
+    }
+
+    .preferences {
+/*      margin-left: 5px;*/
+      width: 110%;
+      max-width: 410px;
+    }
+
+    .greeting {
+      font-size: 32px;
+      line-height: 36px;
+    }
+
+    .under_greeting {
+        margin-top: 4px;
+        font-weight: normal;
+        font-size: 14px;
+        color: #8F8F8F;
+        margin-bottom: 20px;
+    }
+
+    .preference-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+        gap: 10px;
+    }
+
+    .preference-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 10px;
+/*          background-color: #f0f0f0;*/
+/*          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);*/
+        position: relative;
+        cursor: pointer;
+        overflow: hidden;
+        transition: background-color 0.3s;
+    }
+    .preference-card_img{
+      display: none;
+    }
+    .selected > .preference-card_img{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 86%;
+      border-radius: 10px;
+      background-color: #9c6af9bd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .preference-card img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+.selected >.preference-card_img > img{
+  width: 30px;
+  height: 30px;
+}
+    .preference-title {
+        text-align: center;
+        font-size: 14px;
+        color: #333333;
+        margin-top: 8px;
+    }
+
+
+    .button-container {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        padding: 10px 0;
+        text-align: center;
+        margin: 0 auto;
+        background: #fff;
+    }
+    .button-container_2 {
+        position: fixed;
+        bottom: 67px;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        padding: 10px 0;
+        text-align: center;
+        margin: 0 auto;
+        display: none;
+        background: #fff;
+
+      }
+
+    .buttonMain {
+        height: 55px;
+        width: 90%;
+        background-color: #9C6AF9;
+        color: white;
+        font-size: 16px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        transition: background-color 0.3s;
+        position: relative;
+        z-index:8;
+        overflow:hidden;
+        padding-right: 10px; /* Отступ для иконки */
+    }
+    .buttonMain_2 {
+        height: 55px;
+        width: 90%;
+        background-color: #fff;
+        color: #000;
+        font-size: 16px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s;
+        position: relative;
+        z-index: 8;
+        overflow: hidden;
+        padding-right: 10px;
+    }
+    .buttonMain >p{
+      position:relative;
+      z-index:10;
+      }
+
+    .button-icon {
+        position: absolute;
+        z-index:10;
+        right: 22px; /* Расположение иконки на самом краю справа */
+        width: 18px; /* Ширина иконки */
+        height: 20px; /* Высота иконки */
+    }
+
+    .progress-message {
+        font-size: 14px;
+        color: #8F8F8F;
+        margin-top: 8px;
+    }
+
+
+
+
+    label {
+      font-size: 16px;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    input[type="range"] {
+      width: 100%;
+    }
+
+    #activity-value, #stress-value {
+      font-size: 16px;
+      display: block;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 100px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .stress-lifestyle {
+        margin-top: 20px;
+    }
+
+    .stress-lifestyle textarea{
+      width: 95%;
+    }
+
+    .slider-section {
+      width: 100%;
+      padding: 20px;
+      box-shadow: 0 5px 30px 0 rgba(0,0,0,0.2);
+      margin-bottom: 20px;
+      border-radius: 12px;
+    }
+
+    .slider-section label {
+        display: block;
+        font-size: 16px;
+        margin-bottom: 10px;
+        color: #333;
+      display: flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .slider-section input[type="range"] {
+        -webkit-appearance: none;
+        width: 100%;
+        height: 10px;
+        background: transparent;
+        margin-bottom: 10px;
+    }
+
+    .slider-section input[type="range"]::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 4px;
+        background: transparent;
+        border: none;
+        border-top: 1px dashed #ccc;
+    }
+
+    .slider-section input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 30px;
+        height: 30px;
+        background: #8a2be2;
+        border-radius: 50%;
+        border: 2px solid #fff;
+        cursor: pointer;
+        margin-top: -13px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        font-size: 14px;
+        font-weight: bold;
+        position: relative;
+    }
+
+    .slider-section input[type="range"]::-moz-range-track {
+        width: 100%;
+        height: 4px;
+        background: transparent;
+        border: none;
+        border-top: 1px dotted #ccc;
+    }
+
+    .slider-section input[type="range"]::-moz-range-thumb {
+        width: 30px;
+        height: 30px;
+        background: #8a2be2;
+        border-radius: 50%;
+        border: 2px solid #fff;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .slider-section input[type="range"]::-ms-track {
+        width: 100%;
+        height: 4px;
+        background: transparent;
+        border: none;
+        border-top: 1px dotted #ccc;
+        color: transparent;
+    }
+
+    .slider-section input[type="range"]::-ms-thumb {
+        width: 30px;
+        height: 30px;
+        background: #8a2be2;
+        border-radius: 50%;
+        border: 2px solid #fff;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .slider-section .slider-values {
+        display: flex;
+        justify-content: space-between;
+        font-size: 14px;
+        color: #8a2be2;
+    }
+
+    .slider-section .slider-values span {
+        font-weight: bold;
+    }
+
+    .slider-section .slider-current-value {
+        text-align: center;
+        font-size: 20px;
+        color: #8a2be2;
+        margin-top: 10px;
+    }
+    .slider-section p{
+      font-family: 'Quicksand', sans-serif;
+      color: #B7B7B7;
+    }
+
+
+    textarea {
+        width: 100%;
+        height: 100px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        padding: 10px;
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+/*    #activity-level{
+      -webkit-appearance: none;
+
+
+    }
+*/
+
+
+.progres{
+      position:absolute;
+      z-index:9;
+      top:0;
+      left: 0;
+      width:100%;
+      height:100%;
+       background-color: #9C6AF9;
+    }
+    .popup {
+            display: none;
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 20%;
+            background-color: white;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            z-index: 1000;
+            max-width: 500px;
+            margin: auto;
+            padding: 16px;
+
+        }
+        .popup.show {
+            display: block;
+            margin: 10px;
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+        .overlay.show {
+            display: block;
+        }
+        .popup-header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 20px 0;
+        }
+        .popup-header button {
+            background: none;
+            border: none;
+            color: #007aff;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .activity-level-renge{
+          position: relative;
+          width: 100%;
+        }
+        .activity-level-renge > .test{
+          position: absolute;
+          z-index: 10;
+          left: 12px;
+          color: #fff;
+          top: 0;
+        }
+        .popup-header h3 {
+            margin: 0;
+            font-size: 36px;
+        }
+        .weight-picker-section{
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          padding: 0 40px;
+        }
+        .weight-picker-container {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+            text-align: center;
+            margin: 20px 0;
+            min-width: 80px;
+        }
+        .comma{
+          font-size: 35px;
+          color: #9C6AF9;
+          min-width: 40px;
+          text-align: center;
+        }
+        .buttons{
+          display: flex;
+          gap: 8px;
+          margin-top: 30px;
+        }
+        .confirm_button{
+          padding: 17px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 16px;
+          font-size: 14px;
+          transition: all ease .6s;
+          width: 100%;
+          background-color: #9c6af9;
+          color: #fff;
+          border: none;
+
+        }
+        .cancel_button{
+          padding: 15px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 16px;
+          font-size: 14px;
+          transition: all ease .6s;
+          width: 100%;
+          background-color: #fff;
+          border: none;
+        }
+        .weight-picker {
+            height: 100%;
+            overflow-y: scroll;
+            scrollbar-width: none; /* For Firefox */
+            -ms-overflow-style: none;  /* Internet Explorer 10+ */
+        }
+        .weight-picker::-webkit-scrollbar { /* For Chrome, Safari, and Opera */
+            width: 0;
+        }
+        .weight-picker div {
+            padding: 10px 0;
+            font-size: 30px;
+            color: #969696;
+        }
+        .highlight {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 40px;
+            margin-top: -20px;
+            border-top: 1px solid #E9E9E9;
+            border-bottom: 1px solid #E9E9E9;
+            pointer-events: none;
+        }
+        .highlight_2{
+          position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 40px;
+            margin-top: -20px;
+            border-top: 1px solid #E9E9E9;
+            border-bottom: 1px solid #E9E9E9;
+            pointer-events: none;
+        }
+        .highlight_3{
+          position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 40px;
+            margin-top: -20px;
+            border-top: 1px solid #E9E9E9;
+            border-bottom: 1px solid #E9E9E9;
+            pointer-events: none;
+        }
+        .highlight_4{
+          position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 40px;
+            margin-top: -20px;
+            border-top: 1px solid #E9E9E9;
+            border-bottom: 1px solid #E9E9E9;
+            pointer-events: none;
+        }
+        .highlight_5{
+          position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 40px;
+            margin-top: -20px;
+            border-top: 1px solid #E9E9E9;
+            border-bottom: 1px solid #E9E9E9;
+            pointer-events: none;
+        }
+        .weight-picker div.selected {
+            color: #9C6AF9;
+            font-size: 42px;
+            font-weight: bold;
+            transition: all .4s ease;
+        }
+        @media (min-width: 600px) {
+            .popup {
+                bottom: 50%;
+                transform: translateY(50%);
+                border-radius: 10px;
+            }
+        }
+
+        .steps{
+          display: none;
+          border-radius: 20px;
+          padding:0 15px;
+          margin-top: 20px;
+          background-color: #eeeeee;
+        }
+        .steps_item{
+          border-radius: 50%;
+          width: 12px;
+          height: 12px;
+          border: 1px solid #CECECE;
+          background: #ffffff;
+          margin: 8px 5px;
+        }
+        .steps_item_active{
+          background:radial-gradient(circle, rgb(255, 255, 255) 30%, #9C6AF9 30%)
+        }
+
+        .medical_option_ck{
+          border: 1px solid #9C6AF9;
+        }
+        .medical_option_ck >span {
+          color: #9C6AF9;
+        }
+        .j_1{
+          background-color: #fff;;
+          box-shadow: 0 5px 30px 0 rgba(0,0,0,0.2);
+          border-radius: 10px;
+          display: flex;
+          padding: 16px;
+        }
+        .j_3{
+          background-color: #fff;;
+          box-shadow: 0 5px 30px 0 rgba(0,0,0,0.2);
+          border-radius: 10px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 16px;
+          margin-top: 10px;
+        }
+        .j_2_i{
+           background-color: #fff;;
+          box-shadow: 0 5px 30px 0 rgba(0,0,0,0.2);
+          border-radius: 10px;
+          display: flex;
+          flex-direction: column;
+          padding: 16px;
+        }
+        .j_1_ypr{
+          display: flex;
+          flex-direction: column;
+        }
+        .j_1_y{
+          width: 20px;
+          height: 41px;
+          background-color: #F9D673;
+          border-top-left-radius: 10px;
+          border-top-right-radius: 10px;
+          border-bottom-left-radius: 4px;
+          border-bottom-right-radius: 4px;
+        }
+        .j_1_p{
+          width: 20px;
+          height: 27px;
+          background-color: #9C6AF9;
+          border-top-left-radius: 4px;
+          border-top-right-radius: 4px;
+          border-bottom-left-radius: 4px;
+          border-bottom-right-radius: 4px;
+          margin:4px 0;
+        }
+        .j_1_r{
+          width: 20px;
+          height: 88px;
+          background-color: #FF5A71;
+          border-top-left-radius: 4px;
+          border-top-right-radius: 4px;
+          border-bottom-left-radius: 10px;
+          border-bottom-right-radius: 10px;
+        }
+        #my-pie-chart {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+     background:conic-gradient(#EBE1FE 21.27%, #9C6AF9 19.47%);
+    }
+        .c_text{
+          display: flex;
+          align-items: center;
+        }
+        .c_text >div{
+          border-radius: 50%;
+          width: 8px;
+          height: 8px;
+          margin-right: 10px;
+        }
+        .c_text_1{
+          background-color: #F9D673;
+        }
+        .c_text_2{
+          background-color: #9C6AF9;
+        }
+        .c_text_3{
+          background-color: #FF5A71;
+        }
+        .c_text_h3{
+          margin-left: 16px;
+          color:#8F8F8F;
+        }
+        .j_1_ypr h3 , .j_1_ypr h4{
+          margin-top:0;
+          margin-bottom:0;
+        }
+        .j_1_ypr_2{
+          margin-left: 20px;
+        }
+        .j_1_yp_2{
+          margin-top: 16px;
+        }
+        .j_2{
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 10px;
+          margin-top: 10px;
+        }
+        .j_2_i_c{
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          display: flex;
+          background: #9C6AF9;
+          align-items: center;
+          justify-content: center;
+        }
+        .j_2_i_text{
+          display: flex;
+          margin-top: 24px;
+        }
+        .j_2_i p{
+          color: #8F8F8F;
+        }
+        .j_3_text p{
+          color: #8F8F8F;
+        }
+        .j_2_i_text p, .j_2_i_text h2{
+            margin-top:0;
+          margin-bottom:0;
+        }
+        .j_2_i_text p{
+          margin-top: 4px;
+        }
+        .j_2_i_text h2{
+          margin-right: 4px;
+        }
+</style>
+  <body>
+    <div class="container">
+      <button onclick="prevSlide()">Previous</button>
+      <!--  <button onclick="nextSlide()">NEXT</button>-->
+      <div>
+        <div class="steps" id="steps">
+          <div class="steps_item" id="steps_1"></div>
+          <div class="steps_item" id="steps_2"></div>
+          <div class="steps_item" id="steps_3"></div>
+          <div class="steps_item" id="steps_4"></div>
+          <div class="steps_item" id="steps_5"></div>
+        </div>
+      </div>
+      <div class="slideshow">
+        <div class="slide">
+          <div class="sliderTitle">
+            <h1 class="greeting">Добро<br>пожаловать</h1>
+            <h2 class="under_greeting">Это <span
+                id="purple_text">EatSmart</span>,
+              твой личный ИИ-гуру питания</h2>
+          </div>
+          <div class="main_image">
+            <div class="c_1">
+              <div class="c_2">
+                <div class="c_3">
+                  <div class="c_3_img_1"></div>
+                  <div class="c_3_img_2"></div>
+                  <div class="c_3_img_3"></div>
+                  <div class="c_3_img_4"></div>
+                  <div class="c_3_img_5"></div>
+                  <div class="c_3_img_6"></div>
+                  <div class="c_3_img_7"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide">
+          <h1 class="greeting">Основное</h1>
+          <h2 class="under_greeting">Чем больше мы о вас знаем, тем лучше мы
+            сможем вам помочь:</h2>
+          <!-- Пол -->
+          <div class="option1">
+            <span>Пол:</span>
+            <select id="gender" name="gender" style="margin-left: 200px;">
+              <option value="male">Мужской</option>
+              <option value="female">Женский</option>
+            </select>
+          </div>
+          <!-- Вес -->
+          <div class="option1" id="openPopupButton">
+            <span>Вес:</span>
+            <div>
+              <span id="weight">Выберите вес</span>
+              <img src="./down-arrow-svgrepo-com.svg" />
+            </div>
+          </div>
+          <!-- Рост -->
+          <div class="option1" id="openPopupButton_2">
+            <span>Рост:</span>
+            <div>
+              <span id="height">Выберите рост</span>
+              <img src="./down-arrow-svgrepo-com.svg" />
+            </div>
+          </div>
+          <!-- Возраст -->
+          <div class="option1" id="openPopupButton_3">
+            <span>Возраст:</span>
+            <div>
+              <span id="age">Выберите возраст</span>
+              <img src="./down-arrow-svgrepo-com.svg" />
+            </div>
+          </div>
+
+          <!-- <button onclick="printValues()">Вывести значения</button> -->
+        </div>
+
+        <div class="slide">
+          <div class="sliderTitle">
+            <h1 class="greeting">Здоровье</h1>
+            <h2 class="under_greeting">Пожалуйста, укажите все имеющиеся у вас
+              медицинские противопоказания:</h2>
+          </div>
+          <div id="icon-radio-group">
+            <label class="option" id="medical_option_1">
+              <img src="icon1.svg" alt="Icon 1">
+              <span>Диабет</span>
+              <input type="radio" id="medical_option1" name="medical_condition"
+                value="Диабет">
+            </label>
+            <br>
+            <label class="option" id="medical_option_2">
+              <img src="icon2.svg" alt="Icon 2">
+              <span>Ожирение</span>
+              <input type="radio" id="medical_option2" name="medical_condition"
+                value="Ожирение">
+            </label>
+            <br>
+            <label class="option" id="medical_option_3">
+              <img src="icon3.svg" alt="Icon 3">
+              <span>Гипертония</span>
+              <input type="radio" id="medical_option3" name="medical_condition"
+                value="Гипертония">
+            </label>
+            <br>
+            <label class="option" id="medical_option_4">
+              <img src="icon4.svg" alt="Icon 4">
+              <span>Сердечные заболевания</span>
+              <input type="radio" id="medical_option4" name="medical_condition"
+                value="Сердечные заболевания">
+            </label>
+            <br>
+            <label class="option" id="medical_option_5">
+              <img src="icon5.svg" alt="Icon 5">
+              <span>Аллергия</span>
+              <input type="radio" id="medical_option5" name="medical_condition"
+                value="Аллергия">
+            </label>
+            <div class="additional-options">
+              <div class="not-found">Не нашли в списке?</div>
+              <textarea class="medical-conditions"
+                placeholder="Введите здесь все имеющиеся медицинские противопоказания. Не более 600 символов"></textarea>
+            </div>
+            <br>
+            <br>
+            <br>
+
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="sliderTitle">
+            <h1 class="greeting">Цели</h1>
+            <h2 class="under_greeting">Выберите одну или несколько целей которые
+              больше вам подходят:</h2>
+          </div>
+          <div id="icon-radio-group">
+            <label class="option" id="goal1_1">
+              <img src="up.svg" alt="Icon 1">
+              <span>Набор массы</span>
+              <input type="radio" id="goal1" name="goal" value="Набор массы">
+            </label>
+            <br>
+            <label class="option" id="goal1_2">
+              <img src="down.svg" alt="Icon 1">
+              <span>Снижение веса</span>
+              <input type="radio" id="goal2" name="goal" value="Снижение веса">
+            </label>
+            <br>
+            <label class="option" id="goal1_3">
+              <img src="down.svg" alt="Icon 1">
+              <span>Поддержание текущего веса</span>
+              <input type="radio" id="goal3" name="goal"
+                value="Поддержание текущего веса">
+            </label>
+            <br>
+            <label class="option" id="goal1_4">
+              <img src="heart.svg" alt="Icon 1">
+              <span>Улучшение здоровья</span>
+              <input type="radio" id="goal4" name="goal"
+                value="Улучшение здоровья">
+            </label>
+            <br>
+            <label class="option">
+              <img src="run.svg" alt="Icon 1 id="goal1_5">
+              <span>Улучшение спортивных результатов</span>
+              <input type="radio" id="goal5" name="goal"
+                value="Улучшение спортивных результатов">
+            </label>
+            <br>
+            <br>
+            <br>
+            <br>
+
+            <button onclick="collectDataAndPrint()">Вывести JSON</button>
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="sliderTitle">
+            <br>
+            <h1 class="greeting">Предпочтения</h1>
+            <h2 class="under_greeting">Выберите продукты и блюда, которые вы
+              предпочитаете употреблять:</h2>
+            <div class="preferences">
+              <!--  <h1 class="greeting">Предпочтения</h1>
+          <h2 class="under_greeting">Выберите продукты и блюда которые вы предпочитаете употреблять:</h2> -->
+              <div class="preference-cards">
+                <div class="preference-card" id="preference-card_bl">
+                  <img src="meat.svg" alt="Говядина">
+                  <div class="preference-card_img"><img
+                      src="./firstAnimationImages/heart-fill.png"></div>
+                  <div class="preference-title">Говядина</div>
+                </div>
+                <div class="preference-card" id="preference-card_bl">
+                  <div class="preference-card_img"><img
+                      src="./firstAnimationImages/heart-fill.png"></div>
+                  <img src="vegetables.svg" alt="Овощи">
+                  <div class="preference-title">Овощи</div>
+                </div>
+                <div class="preference-card" id="preference-card_bl">
+                  <div class="preference-card_img"><img
+                      src="./firstAnimationImages/heart-fill.png"></div>
+                  <img src="srawberry.svg" alt="Клубника">
+                  <div class="preference-title">Клубника</div>
+                </div>
+                <div class="preference-card" id="preference-card_bl">
+                  <div class="preference-card_img"><img
+                      src="./firstAnimationImages/heart-fill.png"></div>
+                  <img src="potato.svg" alt="Картофель">
+                  <div class="preference-title">Картофель</div>
+                </div>
+                <div class="preference-card" id="preference-card_bl">
+                  <div class="preference-card_img"><img
+                      src="./firstAnimationImages/heart-fill.png"></div>
+                  <img src="paper.svg" alt="Перец">
+                  <div class="preference-title">Перец</div>
+                </div>
+                <div class="preference-card" id="preference-card_bl">
+                  <div class="preference-card_img"><img
+                      src="./firstAnimationImages/heart-fill.png"></div>
+                  <img src="maccoroni.svg" alt="Спагетти">
+                  <div class="preference-title">Спагетти</div>
+                </div>
+                <div class="preference-card" id="preference-card_bl">
+                  <div class="preference-card_img"><img
+                      src="./firstAnimationImages/heart-fill.png"></div>
+                  <img src="macaronni2.svg" alt="Картофель">
+                  <div class="preference-title">Макароны</div>
+                </div>
+                <div class="preference-card" id="preference-card_bl">
+                  <div class="preference-card_img"><img
+                      src="./firstAnimationImages/heart-fill.png"></div>
+                  <img src="bread.svg" alt="Перец">
+                  <div class="preference-title">Хлеб</div>
+                </div>
+                <div class="preference-card" id="preference-card_bl">
+                  <div class="preference-card_img"><img
+                      src="./firstAnimationImages/heart-fill.png"></div>
+                  <img src="cabbage.svg" alt="Спагетти">
+                  <div class="preference-title">Капуста</div>
+                </div>
+                <div class="preference-card" id="preference-card_bl">
+                  <div class="preference-card_img"><img
+                      src="./firstAnimationImages/heart-fill.png"></div>
+                  <img src="grechka.svg" alt="Картофель">
+                  <div class="preference-title">Крупа</div>
+                </div>
+                <div class="preference-card" id="preference-card_bl">
+                  <div class="preference-card_img"><img
+                      src="./firstAnimationImages/heart-fill.png"></div>
+                  <img src="chesse.svg" alt="Перец">
+                  <div class="preference-title">Сыр</div>
+                </div>
+                <div class="preference-card" id="preference-card_bl">
+                  <div class="preference-card_img"><img
+                      src="./firstAnimationImages/heart-fill.png"></div>
+                  <img src="qiwi.svg" alt="Спагетти">
+                  <div class="preference-title">Киви</div>
+                </div>
+                <div class="preference-card" id="preference-card_bl">
+                  <div class="preference-card_img"><img
+                      src="./firstAnimationImages/heart-fill.png"></div>
+                  <img src="potato.svg" alt="Картофель">
+                  <div class="preference-title">Цитрусовые</div>
+                </div>
+                <div class="preference-card" id="preference-card_bl">
+                  <div class="preference-card_img"><img
+                      src="./firstAnimationImages/heart-fill.png"></div>
+                  <img src="rice.svg" alt="Перец">
+                  <div class="preference-title">Рис</div>
+                </div>
+                <div class="preference-card" id="preference-card_bl">
+                  <div class="preference-card_img"><img
+                      src="./firstAnimationImages/heart-fill.png"></div>
+                  <img src="chocolate.svg" alt="Спагетти">
+                  <div class="preference-title">Шоколад</div>
+                </div>
+                <!-- Добавьте больше карточек по необходимости -->
+              </div>
+            </div>
+
+            <br>
+            <div class="additional-options">
+              <div class="not-found">Не нашли в списке?</div>
+              <textarea class="medical-conditions"
+                placeholder="Введите здесь все продукты и блюда которые вы предпочитаете употреблять. Не более 600 символов"></textarea>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="sliderTitle">
+            <br>
+            <h1 class="greeting">Стресс и образ жизни</h1>
+            <h2 class="under_greeting">Расскажите нам больше о вашем рационе и
+              распорядке дня:</h2>
+            <div class="stress-lifestyle">
+              <div class="slider-section">
+                <label for="activity-level"
+                  style="margin-bottom: 25px;"><b>Уровень активности</b><b
+                    id="activity-section-level">минимальный</b></label>
+                <div class="activity-level-input">
+                  <div class="activity-level-renge">
+                    <div id="test" class='test'>1</div>
+                    <input type="range" id="activity-level"
+                      name="activity-level"
+                      min="1" max="5" value="1">
+                  </div>
+                  <span>5</span>
+                </div>
+                <span id="activity-value">1</span>
+                <p>Выберите свой обычный уровень активности, где <span
+                    id="purple_text">1 - минимальный</span>, а 5 -
+                  максимальный</p>
+              </div>
+              <div class="slider-section">
+                <label for="stress-level" style="margin-bottom: 25px;">
+                  <b>Уровень
+                    стресса</b>
+                  <b id="slider-section_level">минимальный</b>
+                </label>
+                <div class="slider-section-input">
+                  <div class="activity-level-renge">
+                    <div id="test_2" class='test'>1</div>
+                    <input type="range" id="stress-level" name="stress-level"
+                      min="1"
+                      max="5" value="1">
+                  </div>
+                  <span>5</span>
+                </div>
+                <span id="stress-value">1</span>
+                <p>Выберите свой обычный уровень стресса, где <span
+                    id="purple_text">1 - минимальный</span>, а 5 -
+                  максимальный</p>
+              </div>
+
+              <textarea id="description"
+                placeholder="Введите здесь описание вашей обычной физической активности и стресса. Не более 600 символов."
+                maxlength="600"></textarea>
+
+            </div>
+          </div>
+        </div>
+        <!-- ape -->
+        <div class="slide">
+          <div class="sliderTitle">
+            <h1 class="greeting">Готово</h1>
+            <h2 class="under_greeting">Бонус уже ждет тебя в чате</h2>
+          </div>
+          <div class="main_image">
+            <div class="c_1">
+              <div class="c_2">
+                <div class="c_3">
+                  <div class="c_3_img_8"></div>
+                  <div class="c_3_img_2"></div>
+                  <div class="c_3_img_3"></div>
+                  <div class="c_3_img_4"></div>
+                  <div class="c_3_img_5"></div>
+                  <div class="c_3_img_6"></div>
+                  <div class="c_3_img_7"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="sliderTitle">
+            <h1 class="greeting">Статистика</h1>
+            <h2 class="under_greeting">За сегодня</h2>
+          </div>
+          <div class="j_1">
+            <div class="j_1_ypr">
+              <div class="j_1_y"></div>
+              <div class="j_1_p"></div>
+              <div class="j_1_r"></div>
+            </div>
+            <div class="j_1_ypr j_1_ypr_2">
+              <div class="j_1_ypr">
+                <div class="c_text">
+                  <div class="c_text_1"></div>
+                  <h3>Жиры</h3>
+                </div>
+                <h4 class="c_text_h3">319 ккал, 140 гр</h4>
+              </div>
+              <div class="j_1_ypr j_1_yp_2">
+                <div class="c_text">
+                  <div class="c_text_2"></div>
+                  <h3>Углеводы</h3>
+                </div>
+                <h4 class="c_text_h3">425 ккал, 210 гр</h4>
+              </div>
+              <div class="j_1_ypr j_1_yp_2 ">
+                <div class="c_text">
+                  <div class="c_text_3"></div>
+                  <h3>Белки</h3>
+                </div>
+                <h4 class="c_text_h3">920 ккал, 1870 гр</h4>
+              </div>
+            </div>
+          </div>
+          <div class="j_2">
+            <div class="j_2_i">
+              <div class="j_2_i_c">
+                <img src="./firstAnimationImages/cake-fill.png">
+              </div>
+              <div class="j_2_i_text">
+                <h2>3</h2>
+                <p>из 3</p>
+              </div>
+              <p>Приема пищи</p>
+            </div>
+            <div class="j_2_i">
+              <div class="j_2_i_c">
+                <img src="./firstAnimationImages/scales-fill.png">
+              </div>
+              <div class="j_2_i_text">
+                <h2>2,250</h2>
+                <p>гр</p>
+              </div>
+              <p>Съедено</p>
+            </div>
+          </div>
+          <div class="j_3">
+            <div class="j_3_text">
+              <div class="j_2_i_text">
+                <h2>230</h2>
+                <p>ккал</p>
+              </div>
+              <p>Осталось</p>
+            </div>
+            <div id="my-pie-chart"></div>
+          </div>
+        </div>
+        <!-- </div> -->
+      </div>
+      <div class="button-container_2" id="button_container_2" onclick="nextSlide_2()">
+        <div id="buttonMain_2" class="buttonMain buttonMain_2"></div>
+      </div>
+      <div class="button-container">
+        <div id="buttonMain" class="buttonMain" onclick="nextSlide()">Начать<img
+            src="right.svg" alt="Icon" class="button-icon"><div
+            style="width:100%"
+            id='progres'
+            class="progres"></div></div>
+        <div id="progressMessage" class="progress-message"
+          style="display: none;"></div>
+      </div>
+
+      <div class="overlay" id="overlay"></div>
+
+      <div class="popup" id="weightPopup">
+        <div class="popup-header">
+          <h3>Ваш вес</h3>
+        </div>
+        <div class="option_1">
+          <select id="gender_1" name="gender_1">
+            <option value="kg">Килограммы</option>
+            <option value="fn">Фунты</option>
+          </select>
+        </div>
+        <div class="weight-picker-section">
+          <div class="weight-picker-container">
+            <div id="weightPicker" class="weight-picker">
+              <!-- Options will be populated by JavaScript -->
+            </div>
+            <div class="highlight"></div>
+          </div>
+          <div class="comma">
+            <span>,</span>
+          </div>
+          <div class="weight-picker-container">
+            <div id="weightPicker_2" class="weight-picker">
+              <!-- Options will be populated by JavaScript -->
+            </div>
+            <div class="highlight_2"></div>
+          </div>
+          <div class="comma" id="comma_type">
+            <span>кг</span>
+          </div>
+        </div>
+        <div class="buttons">
+          <button id="cancelButton" class="cancel_button">Отмена</button>
+          <button id="confirmButton" class="confirm_button">OK</button>
+        </div>
+      </div>
+
+      <div class="overlay" id="overlay_2"></div>
+
+      <div class="popup" id="weightPopup_2">
+        <div class="popup-header">
+          <h3>Ваш рост</h3>
+        </div>
+        <div class="weight-picker-section">
+          <div class="weight-picker-container">
+            <div id="weightPicker_2_1" class="weight-picker">
+            </div>
+            <div class="highlight_3"></div>
+          </div>
+          <div class="comma">
+            <span>,</span>
+          </div>
+          <div class="weight-picker-container">
+            <div id="weightPicker_2_2" class="weight-picker">
+            </div>
+            <div class="highlight_4"></div>
+          </div>
+          <div class="comma" id="comma_type_2">
+            <span>см</span>
+          </div>
+        </div>
+        <div class="buttons">
+          <button id="cancelButton_2" class="cancel_button">Отмена</button>
+          <button id="confirmButton_2" class="confirm_button">OK</button>
+        </div>
+      </div>
+
+      <div class="overlay" id="overlay_3"></div>
+
+      <div class="popup" id="weightPopup_3">
+        <div class="popup-header">
+          <h3>Ваш рост</h3>
+        </div>
+        <div class="weight-picker-section">
+          <div class="weight-picker-container">
+            <div id="weightPicker_3_1" class="weight-picker">
+            </div>
+            <div class="highlight_5"></div>
+          </div>
+        </div>
+        <div class="buttons">
+          <button id="cancelButton_3" class="cancel_button">Отмена</button>
+          <button id="confirmButton_3" class="confirm_button">OK</button>
+        </div>
+      </div>
+
+      <script>        
+
+
+        let tg = window.Telegram.WebApp;
+
+           // Определение переменных для хранения данных
+        let userData = {
+          gender: "",
+          weight: "",
+          height: "",
+          age: "",
+          medicalCondition: "",
+          goal: ""
+        };
+
+        tg.expand()
+        tg.backgroundColor = "#FCFCFC"
+        tg.headerColor = "#FCFCFC"
+        tg.secondary_bg_color = "#FFFFFF"
+        tg.onEvent('mainButtonClicked', nextSlide)
+        tg.onEvent('mainButtonClicked', nextSlide_2)
+
+        BackButton = tg.BackButton
+        BackButton.color = "#3881F0"
+
+        tg.onEvent('backButtonClicked', prevSlide)
+
+        tg.SettingsButton.show()
+        // tg.extend()
+        // tg.expand()
+
+        const slideshow = document.getElementById('slideshow');
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+        const totalSlides = document.querySelectorAll('.slide').length;
+        const buttonMain = document.getElementById('buttonMain');
+        const progressMessage = document.getElementById('progressMessage');
+        const buttonMain_2 = document.getElementById('buttonMain_2');
+        const button_container_2 = document.getElementById('button_container_2');
+        const iconBtn = document.querySelector('.button-icon');
+
+
+        function updateButton() {
+          const stagesLeft = totalSlides - currentSlide - 1;
+          const buttonProgress = (currentSlide + 1) / totalSlides;
+          
+          let buttonText;
+                    console.log('currentSlide',currentSlide)
+          if(currentSlide === 0){
+             buttonText = "<p>Начать</p>"
+          }
+          else if(currentSlide < totalSlides - 1 && currentSlide < 5){
+            buttonText = "<p>Продолжить</p>" 
+          }
+          else if(currentSlide === 5){
+            buttonText = "<p>Готово</p>"
+          }
+          else if(currentSlide === 6){
+            buttonText = "<p>Открыть чат</p>"
+            buttonMain_2.innerHTML = "<p>Перейти в статистику</p>"
+            button_container_2.style.display = 'block'
+          }
+          else if(currentSlide === 7){
+            button_container_2.style.display = 'none'
+            buttonText = "<p>Поделиться</p>"
+          }
+          buttonMain.innerHTML = `${buttonText}${currentSlide === 7 ? '<img src="./firstAnimationImages/share-fill.png" alt="Icon" class="button-icon">' : '<img src="right.svg" alt="Icon" class="button-icon">'} <div style="width:100%" id='progres' class="progres"></div>`;
+          if (currentSlide === 0 || currentSlide === 6 || currentSlide === 7) {
+            progressMessage.style.display = 'none';
+          } else {
+            progressMessage.innerText = `Пройди ещё ${stagesLeft} этапа и получи бонус`;
+            progressMessage.style.display = 'block';
+          }
+          
+          buttonMain.style.backgroundColor = `rgba(156, 106, 249, ${buttonProgress})`;
+          progresButton()
+        }
+
+        function progresButton (){
+          const progres = document.getElementById('progres');
+          let progresPercent = 0;
+          if(currentSlide === 0 || currentSlide === 5){
+            progresPercent = 100;
+         }  
+         else{
+          progresPercent = currentSlide * 20;
+           const steps = document.getElementById('steps')
+           steps.style.display = "inline-flex"
+         }
+         const steps_1 = document.getElementById('steps_1');
+        const steps_2 = document.getElementById('steps_2');
+        const steps_3 = document.getElementById('steps_3');
+        const steps_4 = document.getElementById('steps_4');
+        const steps_5 = document.getElementById('steps_5');
+         if(currentSlide === 1){
+              steps_1.classList.add("steps_item_active")
+              steps_2.classList.remove("steps_item_active")
+              steps_3.classList.remove("steps_item_active")
+              steps_4.classList.remove("steps_item_active")
+              steps_5.classList.remove("steps_item_active")
+         }
+         if(currentSlide === 2){
+              steps_2.classList.add("steps_item_active")
+              steps_3.classList.remove("steps_item_active")
+              steps_4.classList.remove("steps_item_active")
+              steps_5.classList.remove("steps_item_active")
+         }
+         if(currentSlide === 3){
+              steps_3.classList.add("steps_item_active")
+              steps_4.classList.remove("steps_item_active")
+              steps_5.classList.remove("steps_item_active")
+         }
+         if(currentSlide === 4){
+              steps_4.classList.add("steps_item_active")
+              steps_5.classList.remove("steps_item_active")
+         }
+         if(currentSlide === 5){
+           steps_5.classList.add("steps_item_active")
+         }
+         progres.style.maxWidth = progresPercent + '%'
+         if(currentSlide >= 6){
+          steps.style.display = "none"
+         }
+        }
+
+        // Обработчики кликов для выбора карточек
+        document.querySelectorAll('.preference-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const title = card.querySelector('.preference-title').innerText;
+                
+                // Переключение класса selected
+                card.classList.toggle('selected');
+
+                // Логика для отображения в консоли выбранных карточек
+                if (card.classList.contains('selected')) {
+                    console.log(`Вы выбрали: ${title}`);
+                } else {
+                    console.log(`Вы убрали выбор: ${title}`);
+                }
+            });
+        });
+
+
+
+
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+              if(currentSlide+1 < 7){
+                document.querySelectorAll('.slide')[currentSlide].style.display = 'none';
+                currentSlide++;
+                document.querySelectorAll('.slide')[currentSlide].style.display = 'block';
+                updateButton();
+                }
+            }
+        }
+        
+        function nextSlide_2() {
+            if (currentSlide < totalSlides - 1) {
+                document.querySelectorAll('.slide')[currentSlide].style.display = 'none';
+                currentSlide++;
+                document.querySelectorAll('.slide')[currentSlide].style.display = 'block';
+                updateButton();
+                }
+        }
+        
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                document.querySelectorAll('.slide')[currentSlide].style.display = 'none';
+                currentSlide--;
+                document.querySelectorAll('.slide')[currentSlide].style.display = 'block';
+                updateButton();
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateButton();
+        });
+
+
+
+        function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.style.display = i === index? 'block' : 'none';
+        });
+        }
+        // const radioGroup = document.getElementById('radio-group');
+        // const radios = radioGroup.querySelectorAll('input[type="radio"]');
+
+        // radios.forEach(radio => {
+        //   radio.addEventListener('change', () => {
+        //     console.log(`Selected option: ${radio.value}`);
+        //   });
+        // });
+
+        // function encheckbox(option_num) {
+        //   console.log(option_num);
+
+        // }
+
+     
+        // Функция для сбора данных и вывода в консоль
+        function collectData() {
+          // Получение значений с первого экрана
+          userData.gender = document.getElementById('gender').value;
+          userData.height = document.getElementById('height').value;
+          userData.age = document.getElementById('age').value;
+
+          // Получение выбранного медицинского состояния со второго экрана
+          const medicalConditions = document.querySelectorAll('input[name="medical_condition"]');
+          medicalConditions.forEach(condition => {
+            if (condition.checked) {
+              userData.medicalCondition = condition.value;
+            }
+          });
+
+          // Получение выбранной цели с третьего экрана
+          const goals = document.querySelectorAll('input[name="goal"]');
+          goals.forEach(goal => {
+            if (goal.checked) {
+              userData.goal = goal.value;
+            }
+          });
+
+          // console.log(JSON.stringify(userData));
+        }
+        function collectDataAndPrint() {
+          collectData();
+        }
+
+        const activityLevel = document.getElementById('activity-level');
+        const activityValue = document.getElementById('activity-value');
+        const stressLevel = document.getElementById('stress-level');
+        const stressValue = document.getElementById('stress-value');
+        const sliderSectionLevel = document.getElementById('slider-section_level');
+        const activitySectionLevel = document.getElementById('activity-section-level');
+        const test = document.getElementById('test');
+        const test_2 = document.getElementById('test_2');
+        
+        
+        activityLevel.addEventListener('input', function() {
+            activityValue.textContent = this.value;
+            let x = 12;
+            if(this.value == 1){
+              x = 12;       
+              activitySectionLevel.textContent = "Минимальный"
+            }
+            if(this.value == 2){
+              x = 93
+              activitySectionLevel.textContent = "Небольшой"
+
+            }
+            if(this.value == 3){
+              x = 174
+              activitySectionLevel.textContent = "Умеренный"
+            }
+            if(this.value == 4){
+              x = 254
+              activitySectionLevel.textContent = "Больше среднего"
+            }
+            if(this.value == 5){
+              x = 335
+              activitySectionLevel.textContent = "Максимальный"
+            }
+            test.style.left = x + "px";
+            test.innerText = this.value
+          });
+          
+          stressLevel.addEventListener('input', function() {
+             stressValue.textContent = this.value;
+            
+             let x = 12;
+            if(this.value == 1){
+              x = 12;
+              sliderSectionLevel.textContent = "Минимальный"
+            }
+            if(this.value == 2){
+              x = 93
+           sliderSectionLevel.textContent = "Небольшой"
+            }
+            if(this.value == 3){
+              x = 174
+              sliderSectionLevel.textContent = "Умеренный"
+            }
+            if(this.value == 4){
+              x = 254
+              sliderSectionLevel.textContent = "Больше среднего"
+            }
+            if(this.value == 5){
+              x = 335
+               sliderSectionLevel.textContent = "Максимальный"
+            }
+            test_2.style.left = x + "px";
+            test_2.innerText = this.value
+        });test_2
+
+        document.addEventListener('DOMContentLoaded', () => {
+        const openPopupButton = document.getElementById('openPopupButton');
+        const openPopupButton_2 = document.getElementById('openPopupButton_2');
+        const openPopupButton_3 = document.getElementById('openPopupButton_3');
+        const overlay = document.getElementById('overlay');
+        const overlay_2 = document.getElementById('overlay_2');
+        const overlay_3 = document.getElementById('overlay_3');
+        const weightPopup = document.getElementById('weightPopup');
+        const weightPopup_2 = document.getElementById('weightPopup_2');
+        const weightPopup_3 = document.getElementById('weightPopup_3');
+        const weightPicker = document.getElementById('weightPicker');
+        const weightPicker_2_1 = document.getElementById('weightPicker_2_1');
+        const weightPicker_2_2 = document.getElementById('weightPicker_2_2');
+        const weightPicker_3_1 = document.getElementById('weightPicker_3_1');
+        const weightPicker_2 = document.getElementById('weightPicker_2');
+        const confirmButton = document.getElementById('confirmButton');
+        const confirmButton_2 = document.getElementById('confirmButton_2');
+        const confirmButton_3 = document.getElementById('confirmButton_3');
+        const cancelButton_3 = document.getElementById('cancelButton_3');
+        const cancelButton = document.getElementById('cancelButton');
+        const cancelButton_2 = document.getElementById('cancelButton_2');
+
+        // Populate weight picker
+        for (let i = 26; i <= 154; i++) {
+          if(i < 30 || i > 150){
+            let weightOption = document.createElement('div');
+            weightPicker.appendChild(weightOption);
+          }
+          else{
+            let weightOption = document.createElement('div');
+            weightOption.textContent = `${i}`;
+            weightOption.dataset.value = i;
+            weightPicker.appendChild(weightOption);
+        }
+       }
+
+        for (let i = 46; i <= 200; i++) {
+               if(i < 50 || i > 196){
+            let weightOption = document.createElement('div');
+            weightPicker_2_1.appendChild(weightOption);
+          }
+          else{
+            let weightOption = document.createElement('div');
+            weightOption.textContent = `${i}`;
+            weightOption.dataset.value = i;
+            weightPicker_2_1.appendChild(weightOption);
+        }
+        }
+
+        for (let i = 12; i <= 79; i++) {
+               if(i < 16 || i > 75){
+            let weightOption = document.createElement('div');
+            weightPicker_3_1.appendChild(weightOption);
+          }
+          else{
+            let weightOption = document.createElement('div');
+            weightOption.textContent = `${i}`;
+            weightOption.dataset.value = i;
+            weightPicker_3_1.appendChild(weightOption);
+        }
+        }
+
+       for (let i = -3; i <= 13; i++) {
+          if(i < 1 || i > 9){
+            let weightOption = document.createElement('div');
+            let weightOption_2 = document.createElement('div');
+            weightPicker_2.appendChild(weightOption);
+            weightPicker_2_2.appendChild(weightOption_2);
+          }
+          else{
+            let weightOption = document.createElement('div');
+            let weightOption_2 = document.createElement('div');
+            weightOption.textContent = `${i} `;
+            weightOption.dataset.value = i;
+            weightOption_2.textContent = `${i} `;
+            weightOption_2.dataset.value = i;
+            weightPicker_2.appendChild(weightOption);
+            weightPicker_2_2.appendChild(weightOption_2);
+
+        }
+       }
+
+        openPopupButton.addEventListener('click', () => {
+            overlay.classList.add('show');
+            weightPopup.classList.add('show');
+        });
+
+         openPopupButton_2.addEventListener('click', () => {
+            overlay_2.classList.add('show');
+            weightPopup_2.classList.add('show');
+        });
+         openPopupButton_3.addEventListener('click', () => {
+            overlay_3.classList.add('show');
+            weightPopup_3.classList.add('show');
+        });
+
+        cancelButton.addEventListener('click', () => {
+            overlay.classList.remove('show');
+            weightPopup.classList.remove('show');
+        });
+
+        cancelButton_2.addEventListener('click', () => {
+            overlay_2.classList.remove('show');
+            weightPopup_2.classList.remove('show');
+        });
+
+        cancelButton_3.addEventListener('click', () => {
+            overlay_3.classList.remove('show');
+            weightPopup_3.classList.remove('show');
+        });
+
+        let selectedWeight = null;
+        let selectedWeight2 = null;
+        let selectedWeight3 = null;
+        let selectedWeight4 = null;
+        let selectedWeight5 = null;
+
+        const updateSelection = () => {
+            const rect = weightPicker.getBoundingClientRect();
+            const rect_2 = weightPicker_2.getBoundingClientRect();
+            const rect_3 = weightPicker_2_1.getBoundingClientRect();
+            const rect_4 = weightPicker_2_2.getBoundingClientRect();
+            const rect_5 = weightPicker_3_1.getBoundingClientRect();
+            const center = rect.top + rect.height / 2;
+            const center_2 = rect_2.top + rect_2.height / 2;
+            const center_3 = rect_3.top + rect_3.height / 2;
+            const center_4 = rect_4.top + rect_4.height / 2;
+            const center_5 = rect_5.top + rect_5.height / 2;
+
+            const items = Array.from(weightPicker.children);
+            const items_2 = Array.from(weightPicker_2.children);
+            const items_3 = Array.from(weightPicker_2_1.children);
+            const items_4 = Array.from(weightPicker_2_2.children);
+            const items_5 = Array.from(weightPicker_3_1.children);
+            let closest = null;
+            let closest_2 = null;
+            let closest_3 = null;
+            let closest_4 = null;
+            let closest_5 = null;
+
+            let minDiff = Infinity;
+            let minDiff_2 = Infinity;
+            let minDiff_3 = Infinity;
+            let minDiff_4 = Infinity;
+            let minDiff_5 = Infinity;
+
+            items.forEach(item => {
+              const itemRect = item.getBoundingClientRect();
+              const itemCenter = itemRect.top + itemRect.height / 2;
+              const diff = Math.abs(center - itemCenter);
+              if (diff < minDiff) {
+                minDiff = diff;
+                closest = item;
+              }
+            });
+            items_2.forEach(item => {
+                const itemRect = item.getBoundingClientRect();
+                const itemCenter = itemRect.top + itemRect.height / 2;
+                const diff = Math.abs(center_2 - itemCenter);
+                if (diff < minDiff_2) {
+                    minDiff_2 = diff;
+                    closest_2 = item;
+                }
+            })
+
+            items_3.forEach(item => {
+                const itemRect = item.getBoundingClientRect();
+                const itemCenter = itemRect.top + itemRect.height / 2;
+                const diff = Math.abs(center_3 - itemCenter);
+
+                if (diff < minDiff_3) {
+                    minDiff_3 = diff;
+                    closest_3 = item;
+                }
+            })
+
+            items_4.forEach(item => {
+              const itemRect = item.getBoundingClientRect();
+              const itemCenter = itemRect.top + itemRect.height / 2;
+              const diff = Math.abs(center_4 - itemCenter);
+
+              if (diff < minDiff_4) {
+                minDiff_4 = diff;
+                closest_4 = item;
+              }
+            })
+
+            items_5.forEach(item => {
+              const itemRect = item.getBoundingClientRect();
+              const itemCenter = itemRect.top + itemRect.height / 2;
+              const diff = Math.abs(center_5 - itemCenter);
+
+              if (diff < minDiff_5) {
+                minDiff_5 = diff;
+                closest_5 = item;
+              }
+            })
+
+            if (closest) {
+                items.forEach(item => item.classList.remove('selected'));
+                closest.classList.add('selected');
+                selectedWeight = closest.dataset.value;
+              }
+              if(closest_2){
+                items_2.forEach(item => item.classList.remove('selected'));
+                closest_2.classList.add('selected');
+                selectedWeight2 = closest_2.dataset.value;
+              }
+              if(closest_3){
+                items_3.forEach(item => item.classList.remove('selected'));
+                closest_3.classList.add('selected');
+                selectedWeight3 = closest_3.dataset.value;
+              }
+              if(closest_4){
+                items_4.forEach(item => item.classList.remove('selected'));
+                closest_4.classList.add('selected');
+                selectedWeight4 = closest_4.dataset.value;  
+             }
+              if(closest_5){
+                items_5.forEach(item => item.classList.remove('selected'));
+                closest_5.classList.add('selected');
+                selectedWeight5 = closest_5.dataset.value;  
+             }
+        };
+
+        weightPicker.addEventListener('scroll', () => {
+            updateSelection();
+        });
+        weightPicker_2.addEventListener('scroll', () => {
+            updateSelection();
+        });
+        weightPicker_2_1.addEventListener('scroll', () => {
+            updateSelection();
+        });
+        weightPicker_2_2.addEventListener('scroll', () => {
+            updateSelection();
+        });
+        weightPicker_3_1.addEventListener('scroll', () => {
+            updateSelection();
+        });
+
+        confirmButton.addEventListener('click', () => {
+            if (selectedWeight) {
+          const weight = document.getElementById('weight');
+                weight.innerText = Number(selectedWeight + '.' + selectedWeight2) + 'кг'
+            } else {
+                console.log('Вес не выбран');
+            }
+            overlay.classList.remove('show');
+            weightPopup.classList.remove('show');
+        });
+
+        confirmButton_2.addEventListener('click', () => {
+            if (selectedWeight3) {
+          const height = document.getElementById('height');
+                height.innerText = Number(selectedWeight3 + '.' + selectedWeight4) + 'см'
+            } 
+            overlay_2.classList.remove('show');
+            weightPopup_2.classList.remove('show');
+        });
+
+        confirmButton_3.addEventListener('click', () => {
+            if (selectedWeight5) {
+          const age = document.getElementById('age');
+                age.innerText = Number(selectedWeight5) + 'лет'
+            } 
+            overlay_3.classList.remove('show');
+            weightPopup_3.classList.remove('show');
+        });
+
+        overlay.addEventListener('click', () => {
+            overlay.classList.remove('show');
+            weightPopup.classList.remove('show');
+        });
+
+        overlay_2.addEventListener('click', () => {
+            overlay_2.classList.remove('show');
+            weightPopup_2.classList.remove('show');
+        });
+
+         overlay_3.addEventListener('click', () => {
+            overlay_3.classList.remove('show');
+            weightPopup_3.classList.remove('show');
+        });
+
+        // Initial update to set the selection correctly
+        updateSelection();
+    });
+
+    const gender_1 = document.getElementById('gender_1')
+    const comma_type = document.getElementById('comma_type')
+    
+    gender_1.addEventListener('change',(e)=>{
+      if(e.target.value === 'kg'){
+        comma_type.innerText = "кг"
+      }
+      else{
+        comma_type.innerText = "фн"
+      }
+    })
+
+    setTimeout(()=>{
+      const c_3_img = document.querySelectorAll('.c_3 > div')
+      let time = 0
+      c_3_img.forEach((item)=>{
+        setTimeout(()=>{
+          item.style.display = 'flex'
+        },time * 1000)
+        time += 0.2
+      })
+    },1000)
+
+
+    const medical_option1 = document.getElementById('medical_option1')
+    const medical_option2 = document.getElementById('medical_option2')
+    const medical_option3 = document.getElementById('medical_option3')
+    const medical_option4 = document.getElementById('medical_option4')
+    const medical_option5 = document.getElementById('medical_option5')
+    const medical_option_1 = document.getElementById('medical_option_1')
+    const medical_option_2 = document.getElementById('medical_option_2')
+    const medical_option_3 = document.getElementById('medical_option_3')
+    const medical_option_4 = document.getElementById('medical_option_4')
+    const medical_option_5 = document.getElementById('medical_option_5')
+    
+    const goal1_1 = document.getElementById('goal1_1')
+    const goal1_2 = document.getElementById('goal1_2')
+    const goal1_3 = document.getElementById('goal1_3')
+    const goal1_4 = document.getElementById('goal1_4')
+    const goal1_5 = document.getElementById('goal1_5')
+    const goal1 = document.getElementById('goal1')
+    const goal2 = document.getElementById('goal2')
+    const goal3 = document.getElementById('goal3')
+    const goal4 = document.getElementById('goal4')
+    const goal5 = document.getElementById('goal5')
+
+
+    
+    goal1.addEventListener('change',(e)=>{
+      goal1_1.classList.add('medical_option_ck')
+      goal1_2.classList.remove('medical_option_ck')
+      goal1_3.classList.remove('medical_option_ck')
+      goal1_4.classList.remove('medical_option_ck')
+      goal1_5.classList.remove('medical_option_ck')
+    })
+    goal2.addEventListener('change',(e)=>{
+      goal1_1.classList.remove('medical_option_ck')
+      goal1_2.classList.add('medical_option_ck')
+      goal1_3.classList.remove('medical_option_ck')
+      goal1_4.classList.remove('medical_option_ck')
+      goal1_5.classList.remove('medical_option_ck')
+    })
+    goal3.addEventListener('change',(e)=>{
+      goal1_1.classList.remove('medical_option_ck')
+      goal1_2.classList.remove('medical_option_ck')
+      goal1_3.classList.add('medical_option_ck')
+      goal1_4.classList.remove('medical_option_ck')
+      goal1_5.classList.remove('medical_option_ck')
+    })
+     goal4.addEventListener('change',(e)=>{
+      goal1_1.classList.remove('medical_option_ck')
+      goal1_2.classList.remove('medical_option_ck')
+      goal1_3.classList.remove('medical_option_ck')
+      goal1_4.classList.add('medical_option_ck')
+      goal1_5.classList.remove('medical_option_ck')
+    })
+    goal5.addEventListener('change',(e)=>{
+      goal1_1.classList.remove('medical_option_ck')
+      goal1_2.classList.remove('medical_option_ck')
+      goal1_3.classList.remove('medical_option_ck')
+      goal1_4.classList.remove('medical_option_ck')
+      goal1_5.classList.add('medical_option_ck')
+    })
+
+    medical_option1.addEventListener('change',(e)=>{
+      medical_option_1.classList.add('medical_option_ck')
+      medical_option_2.classList.remove('medical_option_ck')
+      medical_option_3.classList.remove('medical_option_ck')
+      medical_option_4.classList.remove('medical_option_ck')
+      medical_option_5.classList.remove('medical_option_ck')
+    })
+    medical_option2.addEventListener('change',(e)=>{
+      medical_option_1.classList.remove('medical_option_ck')
+      medical_option_2.classList.add('medical_option_ck')
+      medical_option_3.classList.remove('medical_option_ck')
+      medical_option_4.classList.remove('medical_option_ck')
+      medical_option_5.classList.remove('medical_option_ck')
+    })
+    medical_option3.addEventListener('change',(e)=>{
+     medical_option_1.classList.remove('medical_option_ck')
+      medical_option_2.classList.remove('medical_option_ck')
+      medical_option_3.classList.add('medical_option_ck')
+      medical_option_4.classList.remove('medical_option_ck')
+      medical_option_5.classList.remove('medical_option_ck')
+    })
+    medical_option4.addEventListener('change',(e)=>{
+       medical_option_1.classList.remove('medical_option_ck')
+      medical_option_2.classList.remove('medical_option_ck')
+      medical_option_3.classList.remove('medical_option_ck')
+      medical_option_4.classList.add('medical_option_ck')
+      medical_option_5.classList.remove('medical_option_ck')
+    })
+    
+    medical_option5.addEventListener('change',(e)=>{
+       medical_option_1.classList.remove('medical_option_ck')
+      medical_option_2.classList.remove('medical_option_ck')
+      medical_option_3.classList.remove('medical_option_ck')
+      medical_option_4.classList.remove('medical_option_ck')
+      medical_option_5.classList.add('medical_option_ck')
+    })
+
+    </script>
+    </div>
+  </body>
+</html>

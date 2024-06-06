@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/mobile-select@latest/dist/style/mobile-select.css" />
+    <script type="text/javascript" src="https://unpkg.com/mobile-select@latest/dist/mobile-select.iife.min.js"></script>
+    <title>Number Picker</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .wrapper {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .picker {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1em;
+            border: 1px solid #ddd;
+            border-radius: 1em;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .picker h3 {
+            margin: 0 0 1em;
+            color: #333;
+        }
+
+        .window {
+            padding: .5em;
+            border: 1px solid #ddd;
+            border-radius: .5em;
+            min-width: 200px;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            color: #333;
+            background-color: #f9f9f9;
+            cursor: pointer;
+        }
+
+        /* Custom styles for the mobile select component */
+        .mobileSelect {
+            font-size: 1.2em;
+        }
+        .mobileSelect .title {
+            color: #333;
+        }
+        .mobileSelect .btnBar {
+            background-color: #f2f2f2;
+        }
+        .mobileSelect .ensure {
+            color: #fff;
+            background-color: #8a2be2;
+        }
+        .mobileSelect .cancel {
+            color: #8a2be2;
+            background-color: #fff;
+        }
+        .mobileSelect .wheels .dw {
+            background-color: #fff;
+        }
+
+        /* Center the mobile select modal */
+        .mobileSelect {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: auto;
+            height: auto;
+        }
+
+        /* Highlight selected numbers */
+        .mobileSelect .wheels .dw .amplify {
+            color: #8a2be2 !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="picker">
+            <h3>Введите ваш вес</h3>
+            <div class="window">112,3</div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        let mobileSelect1 = new MobileSelect({
+            trigger: '.window',
+            title: 'Ваш вес',
+            wheels: [
+                { data: Array.from({ length: 181 }, (_, i) => (i + 110).toString()) },
+                { data: Array.from({ length: 10 }, (_, i) => i.toString()) }
+            ],
+            initValue: '112,3', // Initialize value as a string
+            connector: ',',
+            ensureBtnText: 'Ок',
+            cancelBtnText: 'Отмена',
+            triggerDisplayData: false, // To avoid automatic data display
+            callback: function(indexArr, data) {
+                document.querySelector('.window').innerText = data.join(',');
+            },
+            show: function() {
+                // Apply styles after the mobile select is shown
+                const ensureBtn = document.querySelector('.mobileSelect .ensure');
+                const cancelBtn = document.querySelector('.mobileSelect .cancel');
+                if (ensureBtn) {
+                    ensureBtn.style.backgroundColor = '#8a2be2';
+                    ensureBtn.style.color = '#fff';
+                }
+                if (cancelBtn) {
+                    cancelBtn.style.backgroundColor = '#fff';
+                    cancelBtn.style.color = '#8a2be2';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
